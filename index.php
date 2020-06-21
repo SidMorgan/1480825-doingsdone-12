@@ -88,9 +88,9 @@ $show_complete_tasks = rand(0, 1);
 
                 <nav class="main-navigation">
                     <ul class="main-navigation__list">
-					<?php foreach ($categories as $val): ?>
+					<?php foreach ($categories as $category): ?>
                         <li class="main-navigation__list-item">
-                            <a class="main-navigation__list-item-link" href="#"><?=$val;?></a>
+                            <a class="main-navigation__list-item-link" href="#"><?=$category;?></a>
                             <span class="main-navigation__list-item-count">0</span>
                         </li>
 					<?php endforeach ?>	
@@ -125,16 +125,16 @@ $show_complete_tasks = rand(0, 1);
                     </label>
                 </div>
 				
-			<?php foreach ($tasks as $key => $value): {
-					if($value["Выполнен"] == true && $show_complete_tasks == 0) continue; 
+			<?php foreach ($tasks as $taskProperty => $taskPropertyValue): {
+					if($taskPropertyValue["Выполнен"] == true && $show_complete_tasks == 0) continue; 
 					}	
 						?>
                 <table class="tasks">
-                    <tr class="tasks__item task <?php if($value["Выполнен"] == true): ?>task--completed<?php endif ?>">
+                    <tr class="tasks__item task <?php if($taskPropertyValue["Выполнен"] == true): ?>task--completed<?php endif ?>">
                         <td class="task__select">
                             <label class="checkbox task__checkbox">
                                 <input class="checkbox__input visually-hidden task__checkbox" type="checkbox" value="1">
-                                <span class="checkbox__text"><?=$value["Задача"];?></span>
+                                <span class="checkbox__text"><?=$taskPropertyValue["Задача"];?></span>
                             </label>
                         </td>
 						
@@ -142,7 +142,7 @@ $show_complete_tasks = rand(0, 1);
                             <a class="download-link" href="#">Home.psd</a>
                         </td>--->
 
-                        <td class="task__date"><?=$value["Дата выполнения"];?></td>
+                        <td class="task__date"><?=$taskPropertyValue["Дата выполнения"];?></td>
                     </tr> 
 			
                     <!--показывать следующий тег <tr/>, если переменная $show_complete_tasks равна единице-->
