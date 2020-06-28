@@ -58,6 +58,19 @@ $show_complete_tasks = rand(0, 1);
 	
 	];
 
+
+// Считаем количество задач по категории
+	
+	function tasksCount($tasks, $category) {
+		$tasksAmount = 0;
+		foreach ($tasks as $taskProperty => $taskPropertyValue) {
+			if ($taskPropertyValue["Категория"] == $category) {
+				$tasksAmount++;
+			}
+		}
+		return $tasksAmount;
+	}
+
  ?>
 
 <h1 class="visually-hidden">Дела в порядке</h1>
@@ -85,13 +98,12 @@ $show_complete_tasks = rand(0, 1);
         <div class="content">
             <section class="content__side">
                 <h2 class="content__side-heading">Проекты</h2>
-
                 <nav class="main-navigation">
                     <ul class="main-navigation__list">
 					<?php foreach ($categories as $category): ?>
                         <li class="main-navigation__list-item">
                             <a class="main-navigation__list-item-link" href="#"><?=$category;?></a>
-                            <span class="main-navigation__list-item-count">0</span>
+                            <span class="main-navigation__list-item-count"><?=tasksCount($tasks, $category)?></span>
                         </li>
 					<?php endforeach ?>	
                     </ul>
