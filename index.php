@@ -20,40 +20,40 @@ $show_complete_tasks = rand(0, 1);
 
 	$tasks = [
 		[	
-			"Задача" => "Собеседование в IT компании",
-			"Дата выполнения" => "01.12.2019",
-			"Категория" => "Работа",
-			"Выполнен" => false	
+			'task' => "Собеседование в IT компании",
+			'completionDate' => "01.12.2019",
+			'project' => "Работа",
+			'done' => false	
 		],
 		[	
-			"Задача" => "Выполнить тестовое задание",
-			"Дата выполнения" => "25.12.2019",
-			"Категория" => "Работа", 
-			"Выполнен" => false,
+			'task' => "Выполнить тестовое задание",
+			'completionDate' => "25.12.2019",
+			'project' => "Работа", 
+			'done' => false,
 		],
 		[	
-			"Задача" => "Сделать задание первого раздела",
-			"Дата выполнения" => "21.12.2019",
-			"Категория" => "Учеба",
-			"Выполнен" => true
+			'task' => "Сделать задание первого раздела",
+			'completionDate' => "21.12.2019",
+			'project' => "Учеба",
+			'done' => true
 		],
 		[	
-			"Задача" => "Встреча с другом",
-			"Дата выполнения" => "22.12.2019",
-			"Категория" => "Входящие",
-			"Выполнен" => false	
+			'task' => "Встреча с другом",
+			'completionDate' => "22.12.2019",
+			'project' => "Входящие",
+			'done' => false	
 		],
 		[	
-			"Задача" => "Купить корм для кота",
-			"Дата выполнения" => null,
-			"Категория" => "Домашние дела",
-			"Выполнен" => false
+			'task' => "Купить корм для кота",
+			'completionDate' => null,
+			'project' => "Домашние дела",
+			'done' => false
 		],
 		[	
-			"Задача" => "Заказать пиццу",
-			"Дата выполнения" => null,
-			"Категория" => "Домашние дела",
-			"Выполнен" => false
+			'task' => "Заказать пиццу",
+			'completionDate' => null,
+			'project' => "Домашние дела",
+			'done' => false
 		]
 	
 	];
@@ -64,7 +64,7 @@ $show_complete_tasks = rand(0, 1);
 	function tasksCount($tasks, $category) {
 		$tasksAmount = 0;
 		foreach ($tasks as $taskProperty => $taskPropertyValue) {
-			if ($taskPropertyValue["Категория"] == $category) {
+			if ($taskPropertyValue['project'] == $category) {
 				$tasksAmount++;
 			}
 		}
@@ -138,15 +138,15 @@ $show_complete_tasks = rand(0, 1);
                 </div>
 				
 			<?php foreach ($tasks as $taskProperty => $taskPropertyValue): {
-					if($taskPropertyValue["Выполнен"] == true && $show_complete_tasks == 0) continue; 
+					if($taskPropertyValue['done'] == true && $show_complete_tasks == 0) continue; 
 					}	
 						?>
                 <table class="tasks">
-                    <tr class="tasks__item task <?php if($taskPropertyValue["Выполнен"] == true): ?>task--completed<?php endif ?>">
+                    <tr class="tasks__item task <?php if($taskPropertyValue['done'] == true): ?>task--completed<?php endif ?>">
                         <td class="task__select">
                             <label class="checkbox task__checkbox">
                                 <input class="checkbox__input visually-hidden task__checkbox" type="checkbox" value="1">
-                                <span class="checkbox__text"><?=$taskPropertyValue["Задача"];?></span>
+                                <span class="checkbox__text"><?=$taskPropertyValue['task'];?></span>
                             </label>
                         </td>
 						
@@ -154,7 +154,7 @@ $show_complete_tasks = rand(0, 1);
                             <a class="download-link" href="#">Home.psd</a>
                         </td>--->
 
-                        <td class="task__date"><?=$taskPropertyValue["Дата выполнения"];?></td>
+                        <td class="task__date"><?=$taskPropertyValue['completionDate'];?></td>
                     </tr> 
 			
                     <!--показывать следующий тег <tr/>, если переменная $show_complete_tasks равна единице-->
