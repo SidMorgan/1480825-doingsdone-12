@@ -63,8 +63,8 @@ $show_complete_tasks = rand(0, 1);
 	
 	function tasksCount($tasks, $category) {
 		$tasksAmount = 0;
-		foreach ($tasks as $taskProperty => $taskPropertyValue) {
-			if ($taskPropertyValue['project'] == $category) {
+		foreach ($tasks as $task) {
+			if ($task['project'] == $category) {
 				$tasksAmount++;
 			}
 		}
