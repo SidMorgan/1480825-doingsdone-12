@@ -40,10 +40,11 @@
 			</label>
 		</div>
 		
-	<?php foreach ($tasks as $taskProperty => $taskPropertyValue): {
-			if($taskPropertyValue['done'] == true && $show_complete_tasks == 0) continue; 
-			}	
-				?>
+		<?php foreach ($tasks as $taskProperty => $taskPropertyValue): {
+			if($taskPropertyValue['done'] == true && $show_complete_tasks == 0) 
+			continue; 
+		}
+		?>
 		<table class="tasks">
 			<tr class="tasks__item task <?php if($taskPropertyValue['done'] == true): ?>task--completed<?php endif ?>">
 				<td class="task__select">
